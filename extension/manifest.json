@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Reply with AI",
+  "version": "1.0.0",
+  "description": "AI-powered email reply drafts for Gmail using local LLM",
+  "permissions": [
+    "identity",
+    "storage",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*",
+    "http://localhost:8000/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content_script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Reply with AI"
+  },
+  "oauth2": {
+    "client_id": "1096288852295-6avtdfgb53mbtbih8lo6gqdiv5190cri.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/gmail.readonly",
+      "https://www.googleapis.com/auth/gmail.compose"
+    ]
+  }
+}

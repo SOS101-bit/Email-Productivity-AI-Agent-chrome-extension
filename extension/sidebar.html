@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Reply with AI Sidebar</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Google Sans', Roboto, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #202124;
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      border-bottom: 1px solid #e0e0e0;
+      background: #f5f5f5;
+    }
+
+    .sidebar-header h3 {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    #sidebar-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #5f6368;
+      padding: 0 4px;
+    }
+
+    #sidebar-close:hover {
+      color: #202124;
+    }
+
+    .sidebar-content {
+      padding: 16px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    #sidebar-loading {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #e0e0e0;
+      border-top-color: #1a73e8;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    #sidebar-loading p {
+      color: #5f6368;
+    }
+
+    #draft-textarea {
+      width: 100%;
+      min-height: 300px;
+      padding: 12px;
+      border: 1px solid #dadce0;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.5;
+      resize: vertical;
+      margin-bottom: 16px;
+    }
+
+    #draft-textarea:focus {
+      outline: none;
+      border-color: #1a73e8;
+      box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+    }
+
+    .button-row {
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    button {
+      padding: 10px 24px;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    button.primary {
+      background: #1a73e8;
+      color: white;
+      border: none;
+    }
+
+    button.primary:hover {
+      background: #1557b0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    button.secondary {
+      background: white;
+      color: #1a73e8;
+      border: 1px solid #1a73e8;
+    }
+
+    button.secondary:hover {
+      background: #f1f3f4;
+    }
+
+    #sidebar-error {
+      padding: 16px;
+      background: #fce8e6;
+      border: 1px solid #f5c6cb;
+      border-radius: 8px;
+      color: #c5221f;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar-header">
+    <h3>Reply with AI</h3>
+    <button id="sidebar-close">&times;</button>
+  </div>
+  <div class="sidebar-content">
+    <div id="sidebar-loading" class="hidden">
+      <div class="spinner"></div>
+      <p>Generating reply...</p>
+    </div>
+    <div id="sidebar-draft" class="hidden">
+      <textarea id="draft-textarea" placeholder="AI draft will appear here..."></textarea>
+      <div class="button-row">
+        <button id="btn-regenerate" class="secondary">Regenerate</button>
+        <button id="btn-insert" class="primary">Insert into reply</button>
+      </div>
+    </div>
+    <div id="sidebar-error" class="hidden"></div>
+  </div>
+  <script src="sidebar.js"></script>
+</body>
+</html>

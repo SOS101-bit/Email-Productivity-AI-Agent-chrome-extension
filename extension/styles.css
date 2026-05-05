@@ -1,0 +1,226 @@
+/* Reply with AI - Styles */
+
+/* "Reply with AI" button - matches Gmail's secondary button style */
+.reply-with-ai-btn {
+  font-family: 'Google Sans', Roboto, Arial, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 8px 16px !important;
+  border-radius: 18px !important;
+  background: transparent !important;
+  color: #1a73e8 !important;
+  border: 1px solid #1a73e8 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  margin-left: 8px !important;
+  min-width: auto !important;
+  text-transform: none !important;
+  letter-spacing: 0.25px !important;
+}
+
+.reply-with-ai-btn:hover {
+  background: rgba(26, 115, 232, 0.08) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+.reply-with-ai-btn:active {
+  background: rgba(26, 115, 232, 0.12) !important;
+}
+
+/* Sidebar Panel */
+#reply-with-ai-sidebar {
+  position: fixed;
+  top: 0;
+  right: -380px;
+  width: 380px;
+  height: 100vh;
+  background: white;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+  z-index: 999999;
+  transition: right 0.3s ease;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#reply-with-ai-sidebar.open {
+  right: 0;
+}
+
+/* Sidebar internal elements */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #f5f5f5;
+}
+
+.sidebar-header h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+#sidebar-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #5f6368;
+  padding: 0 4px;
+}
+
+#sidebar-close:hover {
+  color: #202124;
+}
+
+.sidebar-content {
+  padding: 16px;
+}
+
+#reply-with-ai-sidebar .hidden {
+  display: none !important;
+}
+
+#sidebar-loading {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+#sidebar-loading p {
+  color: #5f6368;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #1a73e8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+#draft-textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: 12px;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  margin-bottom: 16px;
+}
+
+#draft-textarea:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+.button-row {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+#reply-with-ai-sidebar button {
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#reply-with-ai-sidebar button.primary {
+  background: #1a73e8;
+  color: white;
+  border: none;
+}
+
+#reply-with-ai-sidebar button.primary:hover {
+  background: #1557b0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+#reply-with-ai-sidebar button.secondary {
+  background: white;
+  color: #1a73e8;
+  border: 1px solid #1a73e8;
+}
+
+#reply-with-ai-sidebar button.secondary:hover {
+  background: #f1f3f4;
+}
+
+#sidebar-error {
+  padding: 16px;
+  background: #fce8e6;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  color: #c5221f;
+}
+
+/* Gmail dark mode support */
+@media (prefers-color-scheme: dark) {
+  #reply-with-ai-sidebar {
+    background: #202124;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .sidebar-header {
+    background: #2d2e31;
+    border-bottom-color: #3c4043;
+  }
+
+  .sidebar-header h3 {
+    color: #e8eaed;
+  }
+
+  #sidebar-close {
+    color: #9aa0a6;
+  }
+
+  #sidebar-close:hover {
+    color: #e8eaed;
+  }
+
+  #sidebar-loading p {
+    color: #9aa0a6;
+  }
+
+  #draft-textarea {
+    background: #2d2e31;
+    border-color: #5f6368;
+    color: #e8eaed;
+  }
+
+  #draft-textarea:focus {
+    border-color: #8ab4f8;
+    box-shadow: 0 0 0 2px rgba(138, 180, 248, 0.2);
+  }
+
+  #sidebar-error {
+    background: #3c2222;
+    border-color: #5c2b2b;
+    color: #f28b82;
+  }
+
+  .reply-with-ai-btn {
+    color: #8ab4f8 !important;
+    border-color: #8ab4f8 !important;
+  }
+
+  .reply-with-ai-btn:hover {
+    background: rgba(138, 180, 248, 0.08) !important;
+  }
+}

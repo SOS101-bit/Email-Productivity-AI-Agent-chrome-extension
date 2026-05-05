@@ -1,0 +1,23 @@
+# Environment variables — NEVER push this
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pycache/
+chroma_db/
+
+# Sentence transformers cache
+*.cache/
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# VSCode
+.vscode/
+
+# Node
+node_modules/
