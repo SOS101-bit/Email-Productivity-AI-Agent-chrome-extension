@@ -249,7 +249,3 @@ reply-with-ai/
 - Email data is sent to Ollama Cloud for inference - ensure you're comfortable with this
 - ChromaDB collections use hashed sender emails for privacy
 - CORS is permissive for local development - restrict in production
-
-## License
-
-MIT
